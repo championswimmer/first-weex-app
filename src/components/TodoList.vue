@@ -1,40 +1,42 @@
 <template>
-  <list class="list">
-    <cell class="cell" v-for="num in lists">
-      <div class="panel">
-        <text class="text">{{num}}</text>
-      </div>
-    </cell>
-  </list>
+  <div>
+    <text>TODOLIST</text>
+    <textarea v-model="newtodo"></textarea>
+    <button @click="addTodo">ADD TODO</button>
+    <list class="todolist">
+      <cell v-for="todo in todos">
+        <div>
+          <text>{{todo}}</text>
+        </div>
+      </cell>
+    </list>
+  </div>
 </template>
 
 <script>
 export default {
+  name: 'TodoList.vue',
   data () {
     return {
-      lists: ['A', 'B', 'C', 'D', 'E']
+      newtodo: '',
+      todos: ['aa', 'bb']
+    }
+  },
+  methods: {
+    addTodo () {
+      this.todos.push(this.newtodo)
     }
   }
 }
 </script>
 
 <style scoped>
-  .panel {
-    width: 600px;
-    height: 300px;
-    margin-left: 75px;
-    margin-top: 35px;
-    margin-bottom: 35px;
-    flex-direction: column;
-    justify-content: center;
-    border-width: 2px;
-    border-style: solid;
-    border-color: rgb(162, 217, 192);
-    background-color: rgba(162, 217, 192, 0.2);
+  .todolist {
+    width: 400px;
+    height: 400px;
   }
-  .text {
-    font-size: 88px;
-    text-align: center;
-    color: #41B883;
+  cell div {
+    width: 200px;
+    height: 100px;
   }
 </style>

@@ -2674,23 +2674,9 @@ module.exports = __vue_exports__
 /***/ (function(module, exports) {
 
 module.exports = {
-  "panel": {
-    "width": "600",
-    "height": "300",
-    "marginLeft": "75",
-    "marginTop": "35",
-    "marginBottom": "35",
-    "flexDirection": "column",
-    "justifyContent": "center",
-    "borderWidth": "2",
-    "borderStyle": "solid",
-    "borderColor": "rgb(162,217,192)",
-    "backgroundColor": "rgba(162,217,192,0.2)"
-  },
-  "text": {
-    "fontSize": "88",
-    "textAlign": "center",
-    "color": "#41B883"
+  "todolist": {
+    "width": "400",
+    "height": "400"
   }
 }
 
@@ -2714,12 +2700,25 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
+//
+//
+//
+//
 
 exports.default = {
+  name: 'TodoList.vue',
   data: function data() {
     return {
-      lists: ['A', 'B', 'C', 'D', 'E']
+      newtodo: '',
+      todos: ['aa', 'bb']
     };
+  },
+
+  methods: {
+    addTodo: function addTodo() {
+      this.todos.push(this.newtodo);
+    }
   }
 };
 
@@ -2728,21 +2727,29 @@ exports.default = {
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('list', {
-    staticClass: ["list"]
-  }, _vm._l((_vm.lists), function(num) {
+  return _c('div', [_c('text', [_vm._v("TODOLIST")]), _c('textarea', {
+    attrs: {
+      "value": (_vm.newtodo)
+    },
+    on: {
+      "input": function($event) {
+        _vm.newtodo = $event.target.attr.value
+      }
+    }
+  }), _c('button', {
+    on: {
+      "click": _vm.addTodo
+    }
+  }, [_vm._v("ADD TODO")]), _c('list', {
+    staticClass: ["todolist"]
+  }, _vm._l((_vm.todos), function(todo) {
     return _c('cell', {
-      staticClass: ["cell"],
       appendAsTree: true,
       attrs: {
         "append": "tree"
       }
-    }, [_c('div', {
-      staticClass: ["panel"]
-    }, [_c('text', {
-      staticClass: ["text"]
-    }, [_vm._v(_vm._s(num))])])])
-  }))
+    }, [_c('div', [_c('text', [_vm._v(_vm._s(todo))])])])
+  }))], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
