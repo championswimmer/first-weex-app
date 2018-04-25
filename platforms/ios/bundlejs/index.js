@@ -62,27 +62,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/*global Vue*/
-
-/* weex initialized here, please do not move this line */
-var router = __webpack_require__(1);
-var App = __webpack_require__(5);
-/* eslint-disable no-new */
-new Vue(Vue.util.extend({ el: '#root', router: router }, App));
-router.push('/');
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96,18 +80,42 @@ var _HelloWorld = __webpack_require__(3);
 
 var _HelloWorld2 = _interopRequireDefault(_HelloWorld);
 
+var _TodoList = __webpack_require__(5);
+
+var _TodoList2 = _interopRequireDefault(_TodoList);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/*global Vue*/
-Vue.use(_vueRouter2.default);
+Vue.use(_vueRouter2.default); /* global Vue */
+
 
 module.exports = new _vueRouter2.default({
   routes: [{
     path: '/',
     name: 'HelloWorld',
     component: _HelloWorld2.default
+  }, {
+    path: '/todo',
+    name: 'TodoList',
+    component: _TodoList2.default
   }]
 });
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/*global Vue*/
+
+/* weex initialized here, please do not move this line */
+var router = __webpack_require__(0);
+var App = __webpack_require__(9);
+/* eslint-disable no-new */
+new Vue(Vue.util.extend({ el: '#root', router: router }, App));
+router.push('/');
 
 /***/ }),
 /* 2 */
@@ -2644,6 +2652,127 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
+__vue_options__.__file = "/Users/championswimmer/Development/Personal/Weex/first-weex-app/src/components/TodoList.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-7e01fcb4"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  "panel": {
+    "width": "600",
+    "height": "300",
+    "marginLeft": "75",
+    "marginTop": "35",
+    "marginBottom": "35",
+    "flexDirection": "column",
+    "justifyContent": "center",
+    "borderWidth": "2",
+    "borderStyle": "solid",
+    "borderColor": "rgb(162,217,192)",
+    "backgroundColor": "rgba(162,217,192,0.2)"
+  },
+  "text": {
+    "fontSize": "88",
+    "textAlign": "center",
+    "color": "#41B883"
+  }
+}
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+  data: function data() {
+    return {
+      lists: ['A', 'B', 'C', 'D', 'E']
+    };
+  }
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('list', {
+    staticClass: ["list"]
+  }, _vm._l((_vm.lists), function(num) {
+    return _c('cell', {
+      staticClass: ["cell"],
+      appendAsTree: true,
+      attrs: {
+        "append": "tree"
+      }
+    }, [_c('div', {
+      staticClass: ["panel"]
+    }, [_c('text', {
+      staticClass: ["text"]
+    }, [_vm._v(_vm._s(num))])])])
+  }))
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(10)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(11)
+
+/* template */
+var __vue_template__ = __webpack_require__(12)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
 __vue_options__.__file = "/Users/championswimmer/Development/Personal/Weex/first-weex-app/src/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
@@ -2662,7 +2791,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 6 */
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -2689,7 +2818,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 7 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2698,14 +2827,12 @@ module.exports = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
+
+var _router = __webpack_require__(0);
+
+var _router2 = _interopRequireDefault(_router);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   name: 'App',
@@ -2713,11 +2840,27 @@ exports.default = {
     return {
       logo: 'https://gw.alicdn.com/tfs/TB1yopEdgoQMeJjy1XaXXcSsFXa-640-302.png'
     };
+  },
+
+  methods: {
+    goTo: function goTo(page) {
+      _router2.default.push(page);
+    }
   }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
-/* 8 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2730,7 +2873,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _c('text', {
     staticClass: ["greeting"]
-  }, [_vm._v("The environment is ready!")]), _c('router-view')], 1)
+  }, [_vm._v("The environment is ready!")]), _c('button', {
+    on: {
+      "click": function($event) {
+        _vm.goTo('/todo')
+      }
+    }
+  }, [_vm._v("HELLO")]), _c('div', {
+    staticStyle: {
+      height: "600px",
+      width: "600px"
+    }
+  }, [_c('router-view')], 1)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

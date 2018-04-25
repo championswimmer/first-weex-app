@@ -24,6 +24,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    'vue/valid-v-for': 'off',
     'vue/no-parsing-error':  [2, {
       "x-invalid-end-tag": false
     }],
